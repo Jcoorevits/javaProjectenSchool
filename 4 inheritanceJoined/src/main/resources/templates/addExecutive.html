@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Add Executive</title>
+</head>
+<body>
+<h1>Add executive</h1>
+
+<form action="/processAddExecutive" method="post">
+    <p>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+    </p>
+    <p>
+        <label for="salary">Salary:</label>
+        <input type="text" name="salary" id="salary">
+    </p>
+    <p>
+        <label for="bonus">Bonus:</label>
+        <input type="text" name="bonus" id="bonus">
+    </p>
+    <p>
+        <input type="submit" value="Save" name="save">
+    </p>
+</form>
+</body>
+</html>

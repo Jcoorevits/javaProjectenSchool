@@ -1,0 +1,47 @@
+<!--Jeremy Coorevits r0843822-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Theme Park start</title>
+    <link rel="stylesheet" type="text/css" href="img/style.css"/>
+
+    <link rel="shortcut icon" href="../static/img/Untitled-1.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+          integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+          crossorigin="anonymous"/>
+</head>
+<body class="bgimage vh-100">
+<header class="row justify-content-center">
+    <div><h1><span class="titel">Coast It</span> by Jeremy Coorevits</h1>
+        </div>
+</header>
+<div class="fill"></div>
+<div class="container">
+    <div><p><a class="text-primary" href="/1_newvisitor">New Visitor</a></p></div>
+    <div><p><a class="text-primary" href="/3_newstaff">New Staff Member</a></p></div>
+    <div><p><a class="text-primary" href="/7_newThemePark">New theme park</a></p></div>
+    <div><p><a class="text-primary" href="/5_savedStaff">Existing staff members</a></p></div>
+    <div><p><a class="text-primary" href="/6_savedVisitors">Existing visitors</a></p></div>
+    <div><p><a class="text-primary" href="/8_themeParks">List of theme parks</a></p></div>
+    <div><p><a class="text-primary" href="/9_newAttraction">New attraction</a></p></div>
+    <form action="/searchAttraction" class="">
+        <div class="row flex-column">
+            <div class="form-group col-5">
+                <label for="attraction">Search for attraction:</label>
+                <input class="form-control" type="text" id="attraction" name="attraction" >
+            </div>
+        </div>
+        <input class="btn btn-primary  px-5" type="submit" value="Submit">
+    </form>
+
+</div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

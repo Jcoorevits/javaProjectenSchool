@@ -1,0 +1,41 @@
+<!--Jeremy Coorevits r0843822-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>registration Visitor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="img/style.css"/>
+    <link rel="shortcut icon" href="../static/img/Untitled-1.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+          integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+          crossorigin="anonymous"/>
+
+</head>
+<body class="bgimage vh-100">
+<header class="row justify-content-center m-0">
+    <div><h1><span class="titel">Coast It</span> by Jeremy Coorevits</h1>
+    </div>
+</header>
+<div class="fill"></div>
+<div class="container">
+    <div class="form-group">
+        <h1 class="list-unstyled row" th:text="'Attractions of' + ' ' +${themeparks.getName()}"/>
+        <ol>
+            <li class="ml-4" th:each="themepark : ${themeparks.getAttractions()}" >
+                <span class="font-weight-bold" th:text="${themepark.getName()}"/>
+                <span th:text="' - responsible: '+ ${themepark.getResponsible().getFirstName()} + ' '+ ${themepark.getResponsible().getSurName()} "/>
+            <p th:text="'Duration: '+${themepark.getDuration()+ ' seconds'}"/>
+                <img onerror="this.src='img/noimage.jpg'" th:src="@{${themepark.getPhoto()}}" width="300" height="200">
+            </li>
+        </ol>
+    </div>
+
+
+    <footer><p><a href="/">Home</a></p></footer>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

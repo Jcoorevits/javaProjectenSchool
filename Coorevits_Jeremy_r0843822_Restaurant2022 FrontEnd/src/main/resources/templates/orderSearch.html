@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Search Order</h1>
+
+<form action="/searchOrders" method="post">
+    <div>
+        <label for="table">filter by table: </label>
+        <select name="table" id="table">
+            <option value="">-no filter-</option>
+            <option th:each="table : ${tableList}" th:value="${table.getCode()}" th:text="${table.getCode()}"></option>
+        </select>
+    </div>
+    <p>
+        <label for="searchDate">Search Date</label>
+        <input type="date" name="searchDate" id="searchDate">
+    </p>
+    <p>
+        <label for="searchTotal">Search Amount</label>
+        <input type="text" name="searchTotal" id="searchTotal">
+    </p>
+    <input type="submit" value="Search on Table">
+</form>
+<!--<form action="/searchOrderTable" method="post">-->
+<!--    <p>-->
+<!--        <label for="searchTable">Search Table</label>-->
+<!--        <input type="text" name="searchTable" id="searchTable">-->
+<!--        <input type="submit" value="Search on Table" name="searchTable">-->
+<!--    </p>-->
+<!--</form>-->
+<!--<form action="/searchOrderDate" method="post">-->
+<!--    <p>-->
+<!--        <label for="searchDate">Search Table</label>-->
+<!--        <input type="date" name="searchDate" id="searchDate">-->
+<!--        <input type="submit" value="Search on Table" name="searchDate">-->
+<!--    </p>-->
+<!--</form><form action="/searchTotal" method="post">-->
+<!--    <p>-->
+<!--        <label for="searchTotal">Search Table</label>-->
+<!--        <input type="date" name="searchTotal" id="searchTotal">-->
+<!--        <input type="submit" value="Search on Table" name="searchTotal">-->
+<!--    </p>-->
+<!--</form>-->
+</body>
+</html>

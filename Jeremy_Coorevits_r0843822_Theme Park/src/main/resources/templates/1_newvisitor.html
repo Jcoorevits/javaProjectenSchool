@@ -1,0 +1,54 @@
+<!--Jeremy Coorevits r0843822-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>registration Visitor</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="img/style.css"/>
+    <link rel="shortcut icon" href="../static/img/Untitled-1.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+          integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+          crossorigin="anonymous"/>
+
+</head>
+<body class="bgimage vh-100">
+<header class="row justify-content-center">
+    <div><h1><span class="titel">Coast It</span> by Jeremy Coorevits</h1>
+    </div>
+</header>
+<div class="fill"></div>
+<div class="container">
+    <form action="/2_welcomevisitor" class="">
+        <div class="row flex-column">
+            <div class="form-group col-5"><label for="fname">First name</label>
+                <input class="form-control" type="text" id="fname" name="fname"></div>
+            <div class="form-group col-5"><label for="sname">Surname</label>
+                <input class="form-control" type="text" id="sname" name="sname"></div>
+            <div class="form-group col-5"><label for="birthyear">Year of birth</label>
+                <input class="form-control" type="text" id="birthyear" name="birthyear"></div>
+            <div class="form-group col-3">
+                <ul>
+                    <li class="list-unstyled row" th:each="themepark : ${themeparks}">
+                        <div class="col">
+                            <label th:for="${themeparkStat.index}" th:text="${themepark.getName()}"/></div>
+                        <div class="col">
+                            <input th:value="${themeparkStat.index}" th:checked="${themeparkStat.index} == 0" type="radio" th:id="${themeparkStat.index}" name="themepark"/>
+                        </div>
+                    </li>
+                </ul>
+
+
+            </div>
+        </div>
+        <input class="btn btn-primary  px-5" type="submit" value="Continue and generate park code">
+    </form>
+
+
+    <footer><p><a href="/">Home</a></p></footer>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

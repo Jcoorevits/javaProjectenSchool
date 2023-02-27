@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bread application</title>
+</head>
+<body>
+
+    <form action="/search" method="post">
+        <p>
+            <label for="searchstring">Search for a bread: </label>
+            <input type="text" name="searchstring" id="searchstring">
+            <input type="submit" value="Search" name="searchname">
+        </p>
+        <p>
+            <input type="submit" value="Cheapest breads" name="searchcheap">
+        </p>
+    </form>
+
+    <table border="1">
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Options</th>
+        </tr>
+        <tr th:each="bread : ${breadList}">
+            <td th:text="${bread.getName()}"></td>
+            <td th:text="${bread.getPrice()}"></td>
+            <td>
+                <a th:href="@{/delete(breadId=${bread.getId()})}">Delete</a> |
+                <a th:href="@{/edit(breadId=${bread.getId()})}">Edit</a>
+            </td>
+        </tr>
+    </table>
+
+    <p th:text="'Totaal amount of breads: ' + ${breadList.size()}"></p>
+    <a href="/add">Add a new bread.</a>
+</body>
+</html>

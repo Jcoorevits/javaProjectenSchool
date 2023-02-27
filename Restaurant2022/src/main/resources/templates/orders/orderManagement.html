@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link href="../static/style.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Orders</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Details</th>
+        <th>Date</th>
+        <th>Paid?</th>
+        <th>Responsible</th>
+        <th>Table Code</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order: ${orderList}">
+        <!--This actives the @RequestMapping("{id}") in orderController, the /orders/ is because we want to end up in the orderController which is always mapped with-->
+        <!--/orders-->
+        <td><a th:href="@{'/orders/' + ${order.getId()}}">Details</a></td>
+        <td th:text="${order.getDate()}"></td>
+        <td th:text="${order.isPayed()}"></td>
+        <td th:text="${order.getWaiter().getName()}"></td>
+        <td th:text="${order.getTable().getCode()}"></td>
+        <td th:text="${order.getTotal()}"></td>
+    </tr>
+    </tbody>
+</table>
+<br>
+
+<!--This takes you to the orderCOntroller @RequestMapping("/advancedSearch")-->
+<a th:href="@{/orders/advancedSearch}"><button>Advanced Search</button></a>
+
+<!--This takes you to the orderCOntroller @RequestMapping("/create")-->
+<a th:href="@{/orders/create}"><button>Create a new Order</button></a>
+<a href="/"><button>Back</button></a>
+</body>
+</html>

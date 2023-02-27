@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>Details</th>
+        <th>Date</th>
+        <th>Paid</th>
+        <th>Responsible</th>
+        <th>Table</th>
+        <th>Total</th>
+    </tr>
+    <tr th:each="order : ${orderList}">
+        <td><a th:href="@{'/details/' + ${order.getId()}}">Details</a></td>
+        <td th:text="${order.getDate()}"></td>
+        <td th:text="${order.isPayed()}"></td>
+        <td th:text="${order.getWaiter().getName()}"></td>
+        <td th:text="${order.getTable().getCode()}"></td>
+        <td th:text="${order.getTotal()}"></td>
+
+    </tr>
+</table>
+</br>
+<a href="/orderSearch">
+    <button>Search Orders</button>
+</a>
+<a th:href="@{/create}"><button>Create a new Order</button></a>
+</body>
+</html>

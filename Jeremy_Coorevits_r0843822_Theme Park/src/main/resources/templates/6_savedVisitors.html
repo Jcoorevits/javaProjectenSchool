@@ -1,0 +1,46 @@
+<!--Jeremy Coorevits r0843822-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Existing visitors</title>
+    <link rel="stylesheet" type="text/css" href="img/style.css"/>
+
+    <link rel="shortcut icon" href="../static/img/Untitled-1.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+          integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+          crossorigin="anonymous"/>
+</head>
+<body class="bgimage vh-100">
+<header class="row justify-content-center">
+    <div><h1><span class="titel">Coast It</span> by Jeremy Coorevits</h1>
+    </div>
+</header>
+<div class="fill"></div>
+<div class="container">
+    <h2>Our visitors:</h2>
+    <ol>
+        <li class="ml-5" th:each="visitor : ${visitors}">
+            <span th:text=" ${visitor.getFirstName()} + ' ' + ${visitor.getSurName()}"/>
+            <ul>
+                <li class="ml-5" th:text="'year of birth: ' + ${visitor.getYearOfBirth()}"/>
+                <li class="ml-5" th:text="'park code: ' + ${visitor.getThemeParkCode()}"/>
+                <li class="ml-5"><span th:text="'wish list: '"/>
+                    <ul>
+                        <li class="ml-5" th:each="wish : ${visitor.getWishList()}" th:text="${wish}"/>
+                    </ul>
+                </li>
+
+            </ul>
+        </li>
+    </ol>
+    <footer><p><a href="/">Home</a></p></footer>
+</div>
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

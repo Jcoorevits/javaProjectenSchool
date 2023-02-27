@@ -1,0 +1,81 @@
+html {
+    font : 90% sans-serif;
+    text-align : justify;
+}
+
+body{
+    margin: 2rem;
+    padding: 2rem;
+    background-color: floralwhite;
+}
+header {
+
+    padding-left: 1Rem;
+    padding-right: 1Rem;
+    background-color: #ba8f43;
+    min-height: 6rem;
+}
+p {
+    padding : 0.5Rem 0.5Rem;
+}
+
+a {
+    color : #437fda;
+    text-decoration : none;
+}
+button {
+    margin: 1rem;
+    padding: 1rem;
+}
+/*a:visited {*/
+/*    color : #437fda;*/
+/*    text-decoration : underline;*/
+/*}*/
+/*a:hover {*/
+/*    color : #ba8f43;*/
+/*}*/
+
+h2 {
+    color : #343434;
+    font : italic 130% sans-serif;
+}
+h3 {
+    color : #343434;
+    font : italic 110% sans-serif;
+}
+h4 {
+    color : #343434;
+    font : bold italic 100% sans-serif;
+    padding : 1em 1em 0 1em;
+}
+footer{
+    position:fixed;
+    bottom:0;
+}
+table, td, th{
+    border: 1px solid #000;
+    border-collapse: collapse;
+    padding: 0.3em;
+}
+
+.link-button{
+    background-color: darkcyan;
+    border: cyan 1px solid;
+    color: yellow;
+    padding: 0.5rem;
+    border-radius: 1rem;
+}
+.link-button:hover{
+    background-color: cadetblue;
+    color: black;
+}
+
+.link-button-sm{
+    background-color: dimgrey;
+    padding: 0;
+    border: 1px solid #000;
+}
+.link-button-sm:hover{
+    background-color: grey;
+}
+

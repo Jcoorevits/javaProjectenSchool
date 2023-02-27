@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Primefinder</title>
+</head>
+<body>
+
+<p>
+    We found the following prime numbers:
+    <ul>
+        <li th:each="prime:${solutionList}" th:text="${prime}"></li>
+    </ul>
+
+    <a href="/">Back</a>
+</p>
+
+
+
+</body>
+</html>

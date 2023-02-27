@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bread application</title>
+</head>
+<body>
+<h1>Edit bread</h1>
+
+<form th:action="@{/processedit(breadId=${bread.getId()})}" method="post">
+    <p>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name" th:value="${bread.getName()}">
+    </p>
+    <p>
+        <label for="price">Price</label>
+        <input type="text" name="price" id="price" th:value="${bread.getPrice()}">
+    </p>
+    <p>
+        <input type="submit" value="Save" name="save">
+    </p>
+</form>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h1>Please enter the course details</h1>
+
+<form action="/submitInfo">
+    <p>
+        <label for="courseName">Course name:</label>
+        <input type="text" name="courseName" id="courseName">
+    </p>
+    <p>
+        <label for="location">Location</label>
+        <input type="text" name="location" id="location">
+    </p>
+    <p>
+        <label for="date">Startdate (DD/MM/YYYY)</label>
+        <input type="date" name="date" id="date">
+    </p>
+    <p>
+        <label for="days">Number of days</label>
+        <input type="text" name="days" id="days">
+        <input type="checkbox" name="weekly" id="weekly">
+        <label for="weekly">weekly</label>
+    </p>
+    <p>
+        <input type="submit" name="submit" value="Submit">
+    </p>
+</form>
+</body>
+</html>

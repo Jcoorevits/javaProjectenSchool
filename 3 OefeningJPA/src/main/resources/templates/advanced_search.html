@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="main">
+    <div id="menu">
+        <ul>
+            <li><a href="/admin">Admin</a></li>
+            <li><a href="/">Home</a></li>
+        </ul>
+    </div>
+    <div id="content">
+        <h1>Search training</h1>
+
+        <form action="/search" method="post">
+            <p>
+                <label for="searchTitle">(Part of) title: </label>
+                <input type="text" name="searchTitle" id="searchTitle">
+                <input type="submit" value="Search on title" name="searchTitle">
+            </p>
+            <p>
+                <label for="searchTheme">Choose your theme: </label>
+                <select name="searchTheme" id="searchTheme">
+                    <option value="">Choose your theme here</option>
+                    <option th:each="theme: ${themesList}" th:value="${theme}" th:text="${theme}"></option>
+                </select>
+                <input type="submit" value="Search on theme" name="searchTheme">
+            </p>
+        </form>
+    </div>
+</div>
+</body>
+</html>

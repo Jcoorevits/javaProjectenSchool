@@ -1,0 +1,50 @@
+/*Jeremy Coorevits r0843822*/
+
+
+@import url('https://fonts.googleapis.com/css2?family=Maven+Pro&family=Spectral:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Maven Pro', sans-serif;
+    font-size: 16px;
+    overflow-x: hidden;
+}
+header {
+    border-bottom: 2px solid cadetblue;
+    position: fixed;
+    background-color: #fff;
+    width: 100%;
+
+}
+h1,h2,h3 {
+    font-family: 'Spectral', serif;
+    font-weight: bold;
+}
+p a {
+    font-size: 1.5rem;
+    text-decoration: none;
+}
+p a:hover{
+    text-decoration: none;
+    font-weight: bold;
+}
+.titel {
+    font-family: 'Dancing Script', cursive;
+    font-size: 3.5rem;
+    color: cadetblue;
+}
+.bgimage {
+    background-image: url(../img/Untitled-1.svg);
+    background-repeat: no-repeat;
+    background-position-x: 70%;
+    background-position-y: 20%;
+    background-attachment: fixed;
+}
+.fill {
+    padding: 3%;
+}

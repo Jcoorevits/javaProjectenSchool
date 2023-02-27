@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2>Submit a new dish.</h2>
+
+<form action="/submitInfo">
+    <p>
+        <label for="name">Enter your name:</label>
+        <input type="text" name="name" id="name">
+    </p>
+    <p>Fill in the dimensins of your room:</p>
+    <p>
+        <label for="length">L (in metres)</label>
+        <input type="text" name="length" id="length">
+    </p>
+    <p>
+        <label for="width">W (in metres)</label>
+        <input type="text" name="width" id="width">
+    </p>
+    <p>
+        <label for="height">H (in metres)</label>
+        <input type="text" name="height" id="height">
+    </p>
+    <p>
+        <label for="ceiling">Would you like to paint the ceiling?</label>
+        <input type="checkbox" name="ceiling" id="ceiling">
+
+    </p>
+    <p>
+    <span for="layers">How many layers of paint do you want to put on?</span>
+    <input type="radio" name="layers" value="1" id="layers1">
+    <label for="layers1">1</label>
+    <input type="radio" name="layers" value="2" id="layers2">
+    <label for="layers2">2</label>
+    <input type="radio" name="layers" value="3" id="layers3">
+    <label for="layers3">3</label>
+
+    </p>
+    <p>
+        <input type="submit" name="submit" value="Submit">
+    </p>
+</form>
+</body>
+</html>

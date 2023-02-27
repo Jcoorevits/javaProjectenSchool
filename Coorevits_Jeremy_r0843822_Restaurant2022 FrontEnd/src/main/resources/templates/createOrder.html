@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link href="../static/style.css" rel="stylesheet"/>
+</head>
+<body>
+<h2>Create a new Order</h2>
+
+<!--This actives the @RequestMapping("/createOrder") in orderController, the /orders/ is because we want to end up in the orderController which is always mapped with-->
+<!--/orders-->
+<form th:action="@{/createOrder}">
+    <div>
+    <label for="table">Choose a table: </label>
+    <select name="table" id="table">
+        <option value="">Choose a table</option>
+        <option th:each="table : ${tableList}" th:text="${table.getCode()}" th:value="${table.getId()}"></option>
+    </select>
+    </div>
+    <div>
+        <label for="waiter">Choose a waiter: </label>
+        <select name="waiter" id="waiter">
+            <option value="">Choose a waiter</option>
+            <option th:each="waiter : ${waiterList}" th:text="${waiter.getName()}" th:value="${waiter.getId()}"></option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Create order">
+    </div>
+</form>
+</body>
+</html>

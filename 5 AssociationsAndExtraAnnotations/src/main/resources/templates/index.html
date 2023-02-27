@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Associations</title>
+</head>
+<body>
+
+<ol>
+    <li th:each="team : ${teamList}" ><span th:text="${team.getAssignment()}" />
+        <ol>
+            <li th:each="member : ${team.getMembers()}">
+                <span th:text="${member.getName()}" />
+                <span th:text="'(passportnbr: '+${member.getPassport().getPassportnbr()+')'}"></span>
+                <ul>
+                    <li th:each="tel : ${member.getPhonenbrs()}">
+                        <span th:text="${tel.getType()} + ': ' + ${tel.getNumber()}" />
+                    </li>
+                </ul>
+            </li>
+        </ol>
+    </li>
+</ol>
+
+
+<br/>
+
+<p><a href="/addTeam">Add team</a></p>
+<p><a href="/addPerson">Add person to a team</a></p>
+<p><a href="/addPhone">Add phonenumber</a></p>
+
+</body>
+</html>
+

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>Hello <span th:text="${name}"></span></p>
+<p>You will need <span th:text="${renovationproject.getAmountOfPaintInLitres()}"></span> litre of paint</p>
+<p th:text="${renovationproject.isCeilingIncluded()} ? 'Have you thought about using a special ceiling paint?' : ''"></p>
+
+<footer><p><a href="/">back</a></p></footer>
+
+</body>
+</html>

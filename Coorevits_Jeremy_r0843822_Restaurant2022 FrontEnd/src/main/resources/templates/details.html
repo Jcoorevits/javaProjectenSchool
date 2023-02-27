@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="../static/style.css" rel="stylesheet"/>
+    <title>Title</title>
+</head>
+<body>
+<h1 th:text="'You are now viewing the details of order with id: '+ ${order.getId()}"></h1>
+
+
+<!--To show the main data of the order such as table & date-->
+<p>
+    The table was: <span style="font-weight: bold" th:text="${order.getTable().getCode()}"></span><br>
+    The waiter was: <span style="font-weight: bold" th:text="${order.getWaiter().getName()}"></span><br>
+    The date was: <span style="font-weight: bold" th:text="${order.getDate()}"></span><br>
+    The total amount to be paid is €<span style="font-weight: bold" th:text="${order.getTotal()}"></span><br>
+    Is the bill paid already? <span style="font-weight: bold" th:text="${order.isPayed()}"></span>
+</p>
+
+<h3>The bill:</h3>
+<ul>
+    <li th:each="orderItem: ${order.getOrderItems()}">
+        <span th:text="${orderItem.getQuantity() + ' time(s) ' + orderItem.getDish().getName() + ' for €'+ orderItem.getAppliedPrice()+' each and €'+  orderItem.getAppliedPrice()*orderItem.getQuantity() + ' in total.'}"></span><br>
+<!--If they ask to put the name/quantity/price on a seperate line, uncomment those below-->
+        <!--        <span th:text="${'quantity: '+ orderItem.getQuantity()}"></span><br>-->
+        <!--        <span th:text="${'price: ' + orderItem.getAppliedPrice()}"></span>-->
+
+    </li>
+    <hr>
+    <p>All of things brings the total to €<span style="font-weight: bold" th:text="${order.getTotal()}"></span></p>
+</ul>
+<br>
+
+<!--A form that activates the if statement in the controller "@RequestMapping("/{id}")" to change the isPayed to true-->
+<form th:action="${'/details/' + order.getId()}" th:if="${order.isPayed() == false}">
+    <input type="submit" name="paid" value="Customers have paid" id="paid">
+</form>
+<br>
+<hr>
+<!--To add orders-->
+<!--first it is checked to see if the order is paid already or not, if paid it is hidden and you no longer cna add orders-->
+<h3 th:if="${order.isPayed() == false}">Add to order</h3>
+
+<!--the th:action "'/orders/addToOrder/' + ${order.getId()} refers to @RequestMapping("/addToOrder/{id}") in the Ordercontroller-->
+<form th:action="'/addToOrder/' + ${order.getId()}"
+        th:if="${order.isPayed() == false}">
+    <div>
+    <label for="dish">Select dish: </label>
+    <select name="dish" id="dish">
+        <option value="">Choose a dish</option>
+        <option th:each="dish : ${dishList}" th:text="${dish.getName()}" th:value="${dish.getId()}"></option>
+    </select>
+    </div>
+    <div>
+        <label for="quantity">Quantity: </label>
+        <input type="number" name="quantity" id="quantity">
+    </div>
+    <div>
+        <label for="happyhour">Is it Happy hour?</label>
+        <input type="checkbox" name="happyhour" id="happyhour">
+    </div>
+    <br>
+    <div>
+        <input type="submit" value="Add dish to the order">
+    </div>
+</form>
+<br>
+
+<!--A back option that sends you back to the @RequestMapping("") from OrderController, aka the index page of Order = orderManagement.html-->
+<a th:href="@{/manageOrders}"><button>Back</button></a>
+</body>
+</html>

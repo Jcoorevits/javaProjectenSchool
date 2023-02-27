@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Overerving</title>
+</head>
+<body>
+<h1>Add Customer</h1>
+
+<form action="/processAddCustomer" method="post">
+    <p>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+    </p>
+    <p>
+        <label for="discount">Discount:</label>
+        <input type="text" name="discount" id="discount">
+    </p>
+    <p>
+        <input type="submit" value="Save" name="save">
+    </p>
+</form>
+</body>
+</html>
+

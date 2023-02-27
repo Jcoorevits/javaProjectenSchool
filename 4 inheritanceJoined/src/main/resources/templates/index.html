@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Inheritance</title>
+</head>
+<body>
+
+<ol>
+    <li th:each="person : ${personlist}"><span th:text="${person.getName()}"/>
+        <span th:if="${person.class.simpleName == 'Customer'}"		th:text="'gets ' + ${person.getDiscount()}  + ' discount'" />
+        <span th:if="${person.class.simpleName == 'Executive'}" 	th:text="'has a bonus of ' + ${person.getBonus()}" />
+        <span th:if="${person.class.simpleName == 'Employee'}" 	th:text="'earns ' + ${person.getSalary()}" />
+    </li>
+</ol>
+
+
+<p><a href="/addPerson">Add a person</a></p>
+<p><a href="/addCustomer">Add a customer</a></p>
+<p><a href="/addEmployee">Add an employee</a></p>
+<p><a href="/addExecutive">Add an executive</a></p>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link href="../static/style.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Staff Management</h1>
+
+<table border="1">
+    <thead>
+    <tr>
+    <th>Name</th>
+    <th>Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="staff: ${staffList}">
+        <td th:text="${staff.getName()}"></td>
+        <td th:text="${staff.class.simpleName}"></td>
+<!--        the .class.simpleName is to get the dtype-->
+    </tr>
+    </tbody>
+</table>
+<br>
+<!--This takes you to the staffController @RequestMapping("/create")-->
+<a th:href="@{/staff/create}"><button>Add a new member</button></a>
+
+
+<!--ALTERNATIVE BUT WITH 2 MODEL ATTRIBUTES-->
+<!--<ul>-->
+<!--    <h3>Waiters: </h3>-->
+<!--    <li th:each="waiter: ${waiterList}">-->
+<!--        <span th:text="${waiter.getName()}"></span>-->
+<!--    </li>-->
+<!--    <br>-->
+<!--    <h3>Kitchen Staff</h3>-->
+<!--    <li th:each="kitchenStaff: ${kitchenStaffList}">-->
+<!--        <span th:text="${kitchenStaff.getName()}"></span>-->
+<!--    </li>-->
+<!--</ul>-->
+
+
+
+<a href="/"><button>Back</button></a>
+
+</body>
+</html>

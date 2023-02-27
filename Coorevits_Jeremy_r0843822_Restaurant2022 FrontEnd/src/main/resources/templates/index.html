@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<p>
+
+</p>
+<form action="/start">
+
+    <p>
+        <input type="submit" value="singletontest" name="singletontest"/>
+    </p>
+    <p>
+        <input type="submit" value="observertest" name="observertest"/>
+    </p>
+    <p>
+        <input type="submit" value="strategytest" name="strategytest"/>
+    </p>
+    <p>
+        <input type="submit" value="decoratortest" name="decoratortest"/>
+    </p>
+
+</form>
+</br>
+
+<div th:if="${filledData == null}">
+    <form action="/fill">
+        <p>
+            <input type="submit" value="Fill db"/>
+        </p>
+    </form>
+</div>
+<div th:if="${filledData}">
+    <a th:href="@{/manageStaff}"><button>Manage Staff</button></a>
+    <a href="/manageOrders"><button th:href="@{/manageOrders}">Manage Orders</button></a>
+</div>
+
+
+</body>
+</html>

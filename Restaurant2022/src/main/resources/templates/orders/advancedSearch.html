@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link href="../static/style.css" rel="stylesheet"/>
+</head>
+<body>
+<h1>Advanced Search </h1>
+
+<!--This actives the @RequestMapping("/advancedSearch") in orderController, the /orders/ is because we want to end up in the orderController which is always mapped with-->
+<!--/orders-->
+<form th:action="@{/orders/advancedSearch}">
+    <p>
+        <label for="table">filter by table: </label>
+        <select name="table" id="table">
+            <option value="">No selected table </option>
+            <option th:each="table: ${tableList}" th:text="${table.getCode()}" th:value="${table.getCode()}"></option>
+        </select>
+    </p>
+    <p>
+        <label for="date">Before this date: </label>
+        <input type="date" name="date" id="date">
+    </p>
+    <p>
+        <label for="amount">More than the amount of: </label>
+        <input type="number" name="amount" id="amount">
+    </p>
+    <p>
+        <input type="submit" value="Filter">
+    </p>
+</form>
+
+
+<!--To get the overview of all the orders based on your search-->
+<h1>Orders</h1>
+<table border="1">
+    <thead>
+    <tr>
+        <th>Details</th>
+        <th>Date</th>
+        <th>Paid?</th>
+        <th>Responsible</th>
+        <th>Table Code</th>
+        <th>Total</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="order: ${orderList}">
+        <td><a th:href="@{/orders/detail(orderId=${order.getId()})}">Details</a></td>
+        <td th:text="${order.getDate()}"></td>
+        <td th:text="${order.isPayed()}"></td>
+        <td th:text="${order.getWaiter().getName()}"></td>
+        <td th:text="${order.getTable().getCode()}"></td>
+        <td th:text="${order.getTotal()}"></td>
+    </tr>
+    </tbody>
+</table>
+
+<!--A back option that sends you back to the @RequestMapping("") from OrderController, aka the index page of Order = orderManagement.html-->
+<a th:href="@{/orders}"><button>Back to orders</button></a>
+</body>
+</html>

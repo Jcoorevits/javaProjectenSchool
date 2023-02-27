@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Associations</title>
+</head>
+<body>
+<h1>Make Person</h1>
+
+<form action="/processAddPerson" method="post">
+    <p>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+    </p>
+    <p>
+        <label for="passport">Passport number:</label>
+        <input type="text" name="passport" id="passport">
+    </p>
+    <p>
+        <select name="teamIndex">
+            <option value = "-1">Choose a team </option>
+            <option th:each= "team: ${teamList}" th:text="${team.toString()}" th:value="${team.getId()}"  ></option>
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="make teammember" name="make teammember">
+    </p>
+</form>
+</body>
+</html>
+

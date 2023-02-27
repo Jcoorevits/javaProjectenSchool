@@ -1,0 +1,52 @@
+<!--Jeremy Coorevits r0843822-->
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>registration Staff</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="img/style.css"/>
+    <link rel="shortcut icon" href="../static/img/Untitled-1.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+          integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+          crossorigin="anonymous"/>
+</head>
+<body class="bgimage vh-100">
+<header class="row justify-content-center">
+    <div><h1><span class="titel">Coast It</span> by Jeremy Coorevits</h1>
+    </div>
+</header>
+<div class="fill"></div>
+<div class="container">
+    <form action="/0_exam">
+        <div class="row flex-column">
+            <div class="form-group col-5"><label for="sfname">First name</label>
+                <input class="form-control" type="text" id="sfname" name="sfname"></div>
+            <div class="form-group col-5"><label for="ssname">Surname</label>
+                <input class="form-control" type="text" id="ssname" name="ssname"></div>
+            <div class="form-group col-5"><label for="employyear">Employed since(dd/MM/yyyy)</label>
+                <input class="form-control" type="date" id="employyear" name="employyear"></div>
+            <div class="form-group col-5">
+                <input type="checkbox" id="student" name="student">
+                <label for="student">Working student</label>
+
+            </div>
+            <div class="form-group col-5">
+                <select name="themepark" id="themepark">
+                    <option value="-1">Employed at which theme park?</option>
+                    <option th:each=" themepark : ${themeparks}" th:value="${themeparkStat.index}" th:text="${themepark.getName()}">
+                    </option>
+                </select></div>
+        </div>
+        <input class="btn btn-primary px-3" type="submit" value="Confirm staff member">
+    </form>
+
+
+    <footer><p><a href="/">Home</a></p></footer>
+</div>
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+
+</body>
+</html>

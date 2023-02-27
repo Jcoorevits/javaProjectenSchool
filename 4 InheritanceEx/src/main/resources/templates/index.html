@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1">
+    <tr>
+        <th>Beneficiary</th>
+        <th>Amount</th>
+        <th>Currency</th>
+
+    </tr>
+    <tr th:each="payment : ${paymentList}">
+        <td th:text="${payment.getBeneficiary()}"></td>
+        <td th:text="${payment.getCurrency()}"></td>
+        <td th:text="${payment.getAmount()}"></td>
+    </tr>
+</table>
+    <a href="ascending">ascending payments</a> </br>
+    <a href="cash">cash payments</a></br>
+    <a href="electronic">electronic payments</a></br>
+    <form action="greater" method="post">
+        <label for="amount">amount</label>
+        <input type="text" name="amount" id="amount">
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>

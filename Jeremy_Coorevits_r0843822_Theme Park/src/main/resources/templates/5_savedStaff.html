@@ -1,0 +1,36 @@
+<!--Jeremy Coorevits r0843822-->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Existing staff members</title>
+    <link rel="stylesheet" type="text/css" href="img/style.css"/>
+
+    <link rel="shortcut icon" href="../static/img/Untitled-1.svg" type="image/x-icon">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.6.0/css/bootstrap.min.css"
+          integrity="sha512-P5MgMn1jBN01asBgU0z60Qk4QxiXo86+wlFahKrsQf37c9cro517WzVSPPV1tDKzhku2iJ2FVgL67wG03SGnNA=="
+          crossorigin="anonymous"/>
+</head>
+<body class="bgimage vh-100">
+<header class="row justify-content-center">
+    <div><h1><span class="titel">Coast It</span> by Jeremy Coorevits</h1>
+    </div>
+</header>
+<div class="fill"></div>
+<div class="container">
+    <h2>Our staff:</h2>
+    <ul>
+        <li class="ml-5 " th:each="staff : ${staffMembers}"
+            th:text=" ${staff.toString()}"/>
+        <footer><p><a href="/">Home</a></p></footer>
+    </ul>
+</div>
+
+
+
+<script src="js/jquery.min.js"></script>
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

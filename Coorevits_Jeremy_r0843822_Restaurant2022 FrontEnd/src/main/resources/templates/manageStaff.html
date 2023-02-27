@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+    <li th:each="staff : ${stafflist}"><span th:text="${staff.getName()}"/>
+        <span th:text="${staff.class.simpleName}"/>
+
+
+        <!--        <span th:if="${staff.class.simpleName== 'KitchenStaff'}" th:text="'KitchenStaff'"/>-->
+        <!--        <span th:if="${staff.class.simpleName == 'Waiter'}" th:text="'Waiter'"/>-->
+    </li>
+</ul>
+
+<form action="/addStaff" method="post">
+    <p>
+        <label for="name">Name:</label>
+        <input type="text" name="name" id="name">
+    </p>
+<!--    <p>-->
+<!--        <label for="kitchenStaff">Kitchen staff?</label>-->
+<!--        <input type="checkbox" name="kitchenStaff" id="kitchenStaff">-->
+
+<!--        <label for="waiter">dining room staff?</label>-->
+<!--        <input type="checkbox" name="waiter" id="waiter">-->
+<!--    </p>-->
+    <p>
+        <label for="staffType"></label>
+        <select name="staffType" id="staffType">
+            <option th:each="staffType: ${staffTypes}" th:value="${staffType}" th:text="${staffType}"></option>
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="Save" name="Save">
+    </p>
+
+
+    <!-- lukt niet-->
+    <!--    <ul>-->
+    <!--        <li class="list-unstyled row" th:each="staff : ${stafflist}">-->
+    <!--            <div class="col">-->
+    <!--                <label th:for="${staff.getId()}" th:text="${staff.class.simpleName}"/></div>-->
+    <!--            <div class="col">-->
+    <!--                <input th:value="${staff.class.simpleName}" th:checked="${staff.getId()} == 1" type="radio"-->
+    <!--                       th:id="${staff.class.simpleName}" name="staff"/>-->
+    <!--            </div>-->
+    <!--        </li>-->
+    <!--    </ul>-->
+
+</form>
+</body>
+</html>

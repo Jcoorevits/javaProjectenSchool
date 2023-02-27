@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link href="../static/style.css" rel="stylesheet"/>
+</head>
+<body>
+<p>
+<h2>Project Web app:</h2>
+<!--Will check if the model parameter "FillData" has been passed and is true-->
+<div th:if="${filledData == false}">
+<!--    Method to go to mapping with form-->
+    <form th:action="@{/fillWithData}">
+        <input type="submit" value="Fill tables with data" class="link-button">
+    </form>
+</div>
+<!--Will show this message if the data has been filled.-->
+<div th:if="${filledData}">
+    <p>The tables have been filled</p>
+    <br>
+<!--    both options of href work-->
+    <a th:href="@{/staff}"><button>Manage staff</button></a>
+    <a href="/orders"><button>Manage Orders</button></a>
+</div>
+
+</p>
+
+<h2>Buttons for testing the project:</h2>
+<form action="/start">
+    <p>
+        <input type="submit" value="singletontest" name="singletontest"/>
+    </p>
+    <p>
+        <input type="submit" value="observertest" name="observertest"/>
+    </p>
+    <p>
+        <input type="submit" value="strategytest" name="strategytest"/>
+    </p>
+    <p>
+        <input type="submit" value="decoratortest" name="decoratortest"/>
+    </p>
+
+</form>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<div id="menu">
+    <ul>
+        <li><a href="/admin">Admin</a></li>
+        <li><a href="/">Home</a></li>
+    </ul>
+</div>
+<h1>List of trainings</h1>
+<table border="1">
+    <tr>
+        <th>Code</th>
+        <th>Title</th>
+        <th>Theme</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    <tr th:each="training : ${trainingList}">
+        <td><a th:href="@{/details(trainingId=${training.getNumber()})}" th:text="${training.getCode()}"></a></td>
+        <td th:text="${training.getTitle()}"></td>
+        <td th:text="${training.getTheme()}"></td>
+        <td>
+            <a th:href="@{/delete(trainingId=${training.getNumber()})}"><img src="/Delete.gif" alt="Delete"></a>
+        </td>
+        <td>
+            <a th:href="@{/edit(trainingId=${training.getNumber()})}"><img src="/Edit.gif" alt="Edit"></a>
+        </td>
+    </tr>
+</table>
+<a href="/add">Add a new training.</a>
+<footer><a onclick="history.go(-1)">Back</a></footer>
+</body>
+</html>

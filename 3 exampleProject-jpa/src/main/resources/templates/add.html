@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Bread application</title>
+</head>
+<body>
+<h1>Add a new bread</h1>
+
+<form action="/processadd" method="post">
+    <p>
+        <label for="name">Name</label>
+        <input type="text" name="name" id="name">
+    </p>
+    <p>
+        <label for="price">Price</label>
+        <input type="text" name="price" id="price">
+    </p>
+    <p>
+        <input type="submit" value="Add" name="add">
+    </p>
+</form>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link href="../static/style.css" rel="stylesheet"/>
+</head>
+<body>
+<h3>Add a Staff member: </h3>
+<!--This takes you to the staffController @RequestMapping("/addStaffMember")-->
+<form action="/staff/addStaffMember">
+    <p>
+        <label for="name">Name: </label>
+        <input type="text" id="name" name="name">
+    </p>
+    <p>
+        <label for="staffType"></label>
+        <select name="staffType" id="staffType">
+            <option th:each="staffType: ${staffTypes}" th:value="${staffType}" th:text="${staffType}"></option>
+        </select>
+    </p>
+    <p>
+        <input type="submit" value="add new member" name="new member">
+    </p>
+</form>
+</body>
+</html>
